@@ -6,11 +6,11 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="description" content='Nina Cartucci votre photographe de la region de Bordeaux, ouverte du lundi au vendredi de 10h a 19h pour vous accompagner dans vos evenement'>
 	<title>Nina Carducci - Photographe</title>
-	<script src="./assets/bootstrap/bootstrap.bundle.js"></script>
+	<script src="./assets/bootstrap/bootstrap.bundle.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="./assets/maugallery.js" defer></script>
 	<script src="./assets/scripts.js" defer></script>
@@ -41,13 +41,37 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp" class="d-block w-100" alt="Entreprise">
+					<picture>
+						<!-- Version mobile -->
+						<source srcset="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-s.jpeg" media="(max-width: 768px)" />
+
+						<!-- Version desktop -->
+						<source srcset="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-l.jpeg" media="(min-width: 769px)" />
+
+						<img class="d-block w-100" src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash-l.jpeg" alt="entreprise">
+					</picture>
 				</div>
 				<div class="carousel-item">
-					<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.webp" class="d-block w-100" alt="Festival">
+					<picture>
+						<!-- Version mobile -->
+						<source srcset="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-s.jpeg" media="(max-width: 768px)" />
+
+						<!-- Version desktop -->
+						<source srcset="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-l.jpeg" media="(min-width: 769px)" />
+
+						<img class="d-block w-100" src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash-l.jpeg" alt="concert">
+					</picture>
 				</div>
 				<div class="carousel-item">
-					<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.webp" class="d-block w-100" alt="Mariage">
+					<picture>
+						<!-- Version mobile -->
+						<source srcset="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-s.jpeg" media="(max-width: 768px)" />
+
+						<!-- Version desktop -->
+						<source srcset="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-l.jpeg" media="(min-width: 769px)" />
+
+						<img class="d-block w-100" src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash-l.jpeg" alt="concert">
+					</picture>
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -62,7 +86,7 @@
 	</div>
 	<div id="about">
 		<div class="picture left">
-			<img src="./assets/images/nina.webp" alt="Nina Carducci"/>
+			<img src="./assets/images/nina.jpg" alt="Nina Carducci"/>
 		</div>
 		<div id="about-me">
 			<h3 class="about-me__title">A propos de moi</h3>
@@ -75,15 +99,53 @@
 		<h3 class="title">Portfolio</h3>
 		<div class="container py-3">
 			<div class="gallery" style="display: none">
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp" alt="Concert" />
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp" alt="Entreprises" />
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp" alt="Entreprises" />
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp" alt="Mariage" />
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.webp" alt="Portrait" />
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash.webp" alt="Mariage" />
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/nino-van-prattenburg-443cl1uR_8-unsplash.webp" alt="Portrait" />
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp" alt="Concert" />
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp" alt="Entreprises" />
+				<div class="gallery-item" data-gallery-tag="Concert">
+					<picture >
+						<source srcset="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash-s.jpeg" media="(max-width: 768px)">
+						<source srcset="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash-l.jpeg" media="(min-width: 769px)">
+						<img src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash-l.jpeg" alt="Portrait">
+					</picture>
+				</div>
+				<picture class="gallery-item" data-gallery-tag="Entreprise">
+					<source srcset="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash-l.jpeg" media="(min-width: 769px)">
+					<img src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash-l.jpeg" alt="Entreprise">
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Entreprise">
+					<source srcset="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash-l.jpeg" media="(min-width: 769px)">
+					<img src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash-l.jpeg" alt="Entreprise">
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Mariage">
+					<source srcset="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash-l.jpeg" media="(min-width: 769px)">
+					<img src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash-l.jpeg" alt="Mariage">
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Portrait">
+					<source srcset="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash-l.jpeg" media="(min-width: 769px)">
+					<img src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash-l.jpeg" alt="Portrait">
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Mariage">
+					<source srcset="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash-l.jpeg" media="(min-width: 769px)">
+					<img src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash-l.jpeg" alt="Mariage">
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Portrait">
+					<source srcset="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash-s.jpeg" media="(max-width: 768px)" />
+					<source srcset="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash-l.jpeg" media="(min-width: 769px)" />
+					<img src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash-l.jpeg" alt="Portrait" />
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Concert">
+					<source srcset="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash-l.jpeg" media="(min-width: 769px)">
+					<img src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash-l.jpeg" alt="Portrait">
+				</picture>
+				<picture class="gallery-item" data-gallery-tag="Entreprise">
+					<source srcset="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash-s.jpeg" media="(max-width: 768px)">
+					<source srcset="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash-l.jpeg media="(min-width: 769px)">
+					<img src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash-l.jpeg" alt="Entreprise">
+				</picture>
 			</div>
 		</div>
 		<div class="quote">
@@ -156,7 +218,7 @@
 			</form>
 		</div>
 		<div class="picture right">
-			<img src="./assets/images/camera.webp" alt="camera">
+			<img src="./assets/images/camera.jpg" alt="camera">
 		</div>
 	</div>
 </footer>
