@@ -119,81 +119,41 @@
       $(`#${lightboxId}`).modal("toggle");
     },
     prevImage() {
-      let activeImage = null;
-      $(".gallery-item img").each(function() {
-        if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
-        }
-      });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-      let imagesCollection = [];
-      if (activeTag === "all") {
-        $(".item-column").each(function() {
-          const img = $(this).find(".gallery-item img");
-          if (img.length) {
-            imagesCollection.push(img);
-          }
-        });
-      } else {
-        $(".item-column").each(function() {
-          if (
-            $(this)
-              .children("img")
-              .data("gallery-tag") === activeTag
-          ) {
-            imagesCollection.push($(this).find("img"));
-          }
-        });
-      }
-      let index = 0,
-        next = null;
+      const activeSrc = $(".lightboxImage").attr("src");
+      const activeTag = $(".tags-bar span.active-tag").data("images-toggle");
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i - 1;
-        }
-      });
-      next =
-        imagesCollection[index] ||
-        imagesCollection[imagesCollection.length - 1];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      // Récupère uniquement les images visibles selon le tag actif
+      const imagesCollection = activeTag === "all"
+          ? $(".item-column:visible img")
+          : $(`.item-column:visible [data-gallery-tag="${activeTag}"] img`);
+
+      // Trouve l'index de l'image actuelle
+      const index = imagesCollection.index(imagesCollection.filter(`[src="${activeSrc}"]`));
+
+      // Calcule l'image précédente
+      const prevIndex = (index - 1 + imagesCollection.length) % imagesCollection.length;
+      const prevImage = imagesCollection.eq(prevIndex);
+
+      $(".lightboxImage").attr("src", prevImage.attr("src"));
     },
-    nextImage() {
-      let activeImage = null;
-      $(".gallery-item img").each(function() {
-        if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
-        }
-      });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-      let imagesCollection = [];
-      if (activeTag === "all") {
-        $(".item-column").each(function() {
-          if ($(this).find("img").length) {
-            imagesCollection.push($(this).find("img"));
-          }
-        });
-      } else {
-        $(".item-column").each(function() {
-          if (
-            $(this)
-              .children("img")
-              .data("gallery-tag") === activeTag
-          ) {
-            imagesCollection.push($(this).find("img"));
-          }
-        });
-      }
-      let index = 0,
-        next = null;
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i + 1;
-        }
-      });
-      next = imagesCollection[index] || imagesCollection[0];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+    nextImage() {
+      const activeSrc = $(".lightboxImage").attr("src");
+      const activeTag = $(".tags-bar span.active-tag").data("images-toggle");
+
+      // Récupère uniquement les images visibles selon le tag actif
+      const imagesCollection = activeTag === "all"
+          ? $(".item-column:visible img")
+          : $(`.item-column:visible [data-gallery-tag="${activeTag}"] img`);
+
+      // Trouve l'index de l'image actuelle
+      const index = imagesCollection.index(imagesCollection.filter(`[src="${activeSrc}"]`));
+
+      // Calcule l'image suivante
+      const nextIndex = (index + 1) % imagesCollection.length;
+      const nextImage = imagesCollection.eq(nextIndex);
+
+      $(".lightboxImage").attr("src", nextImage.attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
